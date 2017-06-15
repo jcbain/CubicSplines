@@ -16,7 +16,7 @@ cubic_spline <- function(x,nbreaks=10) {
   duration.cumfreq = cumsum(duration.freq)
   cumfreq0 = c(0,cumsum(duration.freq))
 
-  f_of_x = splines::splinefun(breaks,cumfreq0)
+  f_of_x = stats::splinefun(breaks,cumfreq0)
 
   return(f_of_x)
 }
@@ -30,7 +30,6 @@ cubic_spline <- function(x,nbreaks=10) {
 #' @param deriv The derivative of the cubic spline
 #' @return the adjusted derivative
 #' @export
-
 spline_adjustment <- function(x,deriv) {
   id <- order(x)
   AUC <- sum(diff(x[id])*zoo::rollmean(deriv[id],2))

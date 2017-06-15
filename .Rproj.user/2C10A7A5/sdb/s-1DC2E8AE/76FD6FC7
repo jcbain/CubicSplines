@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "#' Find Function using Cubic Spline Interpolation\n#'\n#' This performs cubic spline interpolation over the cumulative\n#' sum of frequencies of a variable.\n#' @param x The variable to perform the spline over\n#' @param nbreaks The number of breaks for the cumulative sum of frequencies applied to x\n#' @return a cubic spline interpolation function of x\n#' @export\ncubic_spline <- function(x,nbreaks=10) {\n\n  duration = x\n  breaks = seq(0,100, by = nbreaks)\n  duration.cut = cut(duration,breaks, right = FALSE)\n  duration.freq = table(duration.cut)\n\n  duration.cumfreq = cumsum(duration.freq)\n  cumfreq0 = c(0,cumsum(duration.freq))\n\n  f_of_x = splines::splinefun(breaks,cumfreq0)\n\n  return(f_of_x)\n}\n\n\n#' Adjust the splines derivative\n#'\n#' This function adjusts the derivative of a cubic spline so that\n#' when plotted against another variable, the AUC is equal to 1\n#' @param x The variable to plot the derivative against\n#' @param deriv The derivative of the cubic spline\n#' @return the adjusted derivative\n#' @export\n\nspline_adjustment <- function(x,deriv) {\n  id <- order(x)\n  AUC <- sum(diff(x[id])*zoo::rollmean(deriv[id],2))\n  return(deriv/AUC)\n}\n",
+    "contents" : "#' Find Function using Cubic Spline Interpolation\n#'\n#' This performs cubic spline interpolation over the cumulative\n#' sum of frequencies of a variable.\n#' @param x The variable to perform the spline over\n#' @param nbreaks The number of breaks for the cumulative sum of frequencies applied to x\n#' @return a cubic spline interpolation function of x\n#' @export\ncubic_spline <- function(x,nbreaks=10) {\n\n  duration = x\n  breaks = seq(0,100, by = nbreaks)\n  duration.cut = cut(duration,breaks, right = FALSE)\n  duration.freq = table(duration.cut)\n\n  duration.cumfreq = cumsum(duration.freq)\n  cumfreq0 = c(0,cumsum(duration.freq))\n\n  f_of_x = stats::splinefun(breaks,cumfreq0)\n\n  return(f_of_x)\n}\n\n\n#' Adjust the splines derivative\n#'\n#' This function adjusts the derivative of a cubic spline so that\n#' when plotted against another variable, the AUC is equal to 1\n#' @param x The variable to plot the derivative against\n#' @param deriv The derivative of the cubic spline\n#' @return the adjusted derivative\n#' @export\nspline_adjustment <- function(x,deriv) {\n  id <- order(x)\n  AUC <- sum(diff(x[id])*zoo::rollmean(deriv[id],2))\n  return(deriv/AUC)\n}\n",
     "created" : 1497546140956.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3298818607",
+    "hash" : "280176278",
     "id" : "76FD6FC7",
-    "lastKnownWriteTime" : 1497546648,
-    "last_content_update" : 1497546648697,
+    "lastKnownWriteTime" : 1497547303,
+    "last_content_update" : 1497547303860,
     "path" : "~/Documents/r_projects/cubicsplines/R/utility_functions.R",
     "project_path" : "R/utility_functions.R",
     "properties" : {
