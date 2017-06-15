@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Find Function using Cubic Spline Interpolation\n#'\n#' This performs cubic spline interpolation over the cumulative\n#' sum of frequencies of a variable.\n#' @param x The variable to perform the spline over\n#' @param nbreaks The number of breaks for the cumulative sum of frequencies applied to x\n#' @return a cubic spline interpolation function of x\n#' @export\ncubic_spline <- function(x,nbreaks=10) {\n\n  duration = x\n  breaks = seq(0,100, by = nbreaks)\n  duration.cut = cut(duration,breaks, right = FALSE)\n  duration.freq = table(duration.cut)\n\n  duration.cumfreq = cumsum(duration.freq)\n  cumfreq0 = c(0,cumsum(duration.freq))\n\n  f_of_x = splines::splinefun(breaks,cumfreq0)\n\n  return(f_of_x)\n}\n",
+    "created" : 1497546140956.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1604625493",
+    "id" : "76FD6FC7",
+    "lastKnownWriteTime" : 1497546286,
+    "last_content_update" : 1497546286982,
+    "path" : "~/Documents/r_projects/cubicsplines/R/utility_functions.R",
+    "project_path" : "R/utility_functions.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
