@@ -4,12 +4,14 @@
 #' sum of frequencies of a variable.
 #' @param x The variable to perform the spline over
 #' @param nbreaks The number of breaks for the cumulative sum of frequencies applied to x
+#' @param min The minimum value for the break sequence
+#' @param max The maximum value for the break sequence
 #' @return a cubic spline interpolation function of x
 #' @export
-cubic_spline <- function(x,nbreaks=10) {
+cubic_spline <- function(x,nbreaks=10,min=0,max=100) {
 
   duration = x
-  breaks = seq(0,100, by = nbreaks)
+  breaks = seq(min,max, by = nbreaks)
   duration.cut = cut(duration,breaks, right = FALSE)
   duration.freq = table(duration.cut)
 

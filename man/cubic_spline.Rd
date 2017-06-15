@@ -4,12 +4,16 @@
 \alias{cubic_spline}
 \title{Find Function using Cubic Spline Interpolation}
 \usage{
-cubic_spline(x, nbreaks = 10)
+cubic_spline(x, nbreaks = 10, min = 0, max = 100)
 }
 \arguments{
 \item{x}{The variable to perform the spline over}
 
 \item{nbreaks}{The number of breaks for the cumulative sum of frequencies applied to x}
+
+\item{min}{The minimum value for the break sequence}
+
+\item{max}{The maximum value for the break sequence}
 }
 \value{
 a cubic spline interpolation function of x
