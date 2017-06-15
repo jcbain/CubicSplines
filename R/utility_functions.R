@@ -33,7 +33,7 @@ cubic_spline <- function(x,nbreaks=10,min=0,max=100) {
 #' @return the adjusted derivative
 #' @export
 spline_adjustment <- function(x,deriv) {
-  id <- order(x)
-  AUC <- sum(diff(x[id])*zoo::rollmean(deriv[id],2))
+  id = order(x)
+  AUC = sum(diff(x[id])*zoo::rollmean(deriv[id],2))
   return(deriv/AUC)
 }
