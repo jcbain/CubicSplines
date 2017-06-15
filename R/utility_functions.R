@@ -20,3 +20,19 @@ cubic_spline <- function(x,nbreaks=10) {
 
   return(f_of_x)
 }
+
+
+#' Adjust the splines derivative
+#'
+#' This function adjusts the derivative of a cubic spline so that
+#' when plotted against another variable, the AUC is equal to 1
+#' @param x The variable to plot the derivative against
+#' @param deriv The derivative of the cubic spline
+#' @return the adjusted derivative
+#' @export
+
+spline_adjustment <- function(x,deriv) {
+  id <- order(x)
+  AUC <- sum(diff(x[id])*zoo::rollmean(deriv[id],2))
+  return(deriv/AUC)
+}
