@@ -1,11 +1,10 @@
 Package: cubicsplines
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Cubic Spline Interpolation Function Approximation
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: James Bain
+Maintainer: James Bain <jamescbain@gmail.com>
+Description: Approximates a function using cubic spline interpolation.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
