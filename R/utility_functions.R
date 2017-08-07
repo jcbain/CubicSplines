@@ -8,10 +8,10 @@
 #' @param max The maximum value for the break sequence
 #' @return a cubic spline interpolation function of x
 #' @export
-cubic_spline <- function(x,nbreaks=10,min=0,max=100) {
+cubic_spline <- function(x,break_size=10,min=0,max=100) {
 
   duration = x
-  breaks = seq(min,max, by = nbreaks)
+  breaks = seq(min,max, by = break_size)
   duration.cut = cut(duration,breaks, right = FALSE)
   duration.freq = table(duration.cut)
 
