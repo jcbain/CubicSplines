@@ -28,10 +28,10 @@ StatCubicSpline <- ggplot2::ggproto("StatCubicSpline", ggplot2::Stat,
 #' @export
 stat_cubicspline <- function(mapping = NULL, data = NULL, geom = "line",
                              position = "identity", na.rm = FALSE, show.legend = NA,
-                             inherit.aes = TRUE, ...) {
+                             inherit.aes = TRUE, minval = 0, maxval = 100, break_size = 10, ...) {
   ggplot2::layer(
     stat = StatCubicSpline, data = data, mapping = mapping, geom = geom,
     position = position, show.legend = show.legend, inherit.aes = inherit.aes,
-    params = list(na.rm = na.rm, ...)
+    params = list(minval = minval, maxval = maxval, break_size = break_size, na.rm = na.rm, ...)
   )
 }

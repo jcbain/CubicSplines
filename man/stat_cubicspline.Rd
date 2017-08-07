@@ -6,7 +6,7 @@
 \usage{
 stat_cubicspline(mapping = NULL, data = NULL, geom = "line",
   position = "identity", na.rm = FALSE, show.legend = NA,
-  inherit.aes = TRUE, ...)
+  inherit.aes = TRUE, minval = 0, maxval = 100, break_size = 10, ...)
 }
 \arguments{
 \item{minval}{The minimum value in a range of values}
