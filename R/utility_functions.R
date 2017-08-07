@@ -3,7 +3,7 @@
 #' This performs cubic spline interpolation over the cumulative
 #' sum of frequencies of a variable.
 #' @param x The variable to perform the spline over
-#' @param nbreaks The number of breaks for the cumulative sum of frequencies applied to x
+#' @param break_size The width of each break for the cumulative sum of frequencies applied to x
 #' @param min The minimum value for the break sequence
 #' @param max The maximum value for the break sequence
 #' @return a cubic spline interpolation function of x
