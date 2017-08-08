@@ -6,7 +6,8 @@
 \usage{
 stat_cubicspline(mapping = NULL, data = NULL, geom = "line",
   position = "identity", na.rm = FALSE, show.legend = NA,
-  inherit.aes = TRUE, minval = 0, maxval = 100, break_size = 10, ...)
+  inherit.aes = TRUE, minval = 0, maxval = 100, break_size = 10,
+  adjust_to_zero = FALSE, to_density = TRUE, ...)
 }
 \arguments{
 \item{minval}{The minimum value in a range of values}
@@ -14,6 +15,10 @@ stat_cubicspline(mapping = NULL, data = NULL, geom = "line",
 \item{maxval}{The maximum value in a range of values}
 
 \item{break_size}{The size of each break}
+
+\item{adjust_to_zero}{If minimum derivative is < 0 update derivatives to derivatives + min(derivatives)}
+
+\item{to_density}{Adjust derivatives so that AUC = 1}
 }
 \description{
 This function is to be added as a stat_ to a ggplot2 plot.
