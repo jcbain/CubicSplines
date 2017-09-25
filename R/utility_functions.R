@@ -37,3 +37,17 @@ spline_adjustment <- function(x,deriv) {
   AUC = sum(diff(x[id])*zoo::rollmean(deriv[id],2))
   return(deriv/AUC)
 }
+
+
+#' Approximate the function
+#' 
+#' Approximate the funtion between two variables and calculate 
+#' points from the approximated function
+#' @param x The first variable
+#' @param y The second variable
+#' @param vals the values to calculate their points on the line
+#' @export
+find_from_theta <- function(x, y, vals){
+  funct = stats::splinefun(x,y)
+  funct(vals)
+}
